@@ -6,6 +6,7 @@ use SensioLabs\Security\SecurityChecker;
 class CheckCommand extends Command
 {
     protected $name = 'security:check';
+    
     protected $description = 'Check your Laravel project for known security issues';
 
     public function __construct()
@@ -17,7 +18,7 @@ class CheckCommand extends Command
     {
         $checker = new SecurityChecker();
 
-        $alerts = $checker->check(base_path() . 'composer.lock');
+        $alerts = $checker->check(base_path() . '/composer.lock');
 
         if (!empty($alerts)) {
             foreach ($alerts as $alert) {

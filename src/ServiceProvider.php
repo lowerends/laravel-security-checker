@@ -18,9 +18,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->app['command.security-checker.check'] = $this->app->share(
             function ($app) {
-                return new Console\CheckCommand($app['security-checker']);
+                return new Console\CheckCommand();
             }
         );
+
         $this->commands(['command.security-checker.check']);
     }
 
@@ -31,6 +32,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function provides()
     {
-        return ['security-checker', 'command.security-checker.check'];
+        return ['command.security-checker.check'];
     }
 }
