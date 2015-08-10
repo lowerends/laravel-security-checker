@@ -5,18 +5,13 @@
     "license": "MIT",
     "require": {
         "php": ">=5.5.9",
-        "illuminate/support": "~5.1.*",
-        "laravel/framework/src/Illuminate/Foundation": "~5.1.*",
+        "illuminate/support": "5.1.*",
+        "laravel/framework/src/Illuminate/Foundation": "5.1.*",
         "sensiolabs/security-checker": "3.x"
     },
     "autoload": {
         "psr-4": {
             "Lowerends\\SecurityChecker\\": "src/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
         }
     },
     "minimum-stability": "dev"
