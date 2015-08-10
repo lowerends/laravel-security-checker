@@ -6,7 +6,6 @@
     "require": {
         "php": ">=5.5.9",
         "illuminate/support": "5.1.*",
-        "laravel/framework/src/Illuminate/Foundation": "5.1.*",
         "sensiolabs/security-checker": "3.x"
     },
     "autoload": {
