@@ -9,7 +9,13 @@ Require this package with composer:
 composer require lowerends/laravel-security-checker
 ```
 
-Then, add the ServiceProvider to the providers array in `config/app.php`.
+Then, add the ServiceProvider to the providers array in `config/app.php`:
+
+```
+'providers' => [
+   ...
+   'Lowerends\SecurityChecker\ServiceProvider',
+```
 
 ## Usage
 
