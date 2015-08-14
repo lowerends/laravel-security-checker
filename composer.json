@@ -1,7 +1,7 @@
 {
     "name": "lowerends/laravel-security-checker",
-    "description": "The Symfony Security Checker CLI for Laravel",
-    "keywords": ["laravel", "symfony", "security", "checker", "cli"],
+    "description": "The Symfony Security Advisories Checker for Laravel",
+    "keywords": ["laravel", "symfony", "security", "advisories", "checker", "cli"],
     "license": "MIT",
     "require": {
         "php": ">=5.5.9",

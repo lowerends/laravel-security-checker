@@ -1,7 +1,7 @@
 # laravel-security-checker
 [![Latest Stable Version](https://poser.pugx.org/lowerends/laravel-security-checker/v/stable)](https://packagist.org/packages/lowerends/laravel-security-checker) [![Total Downloads](https://poser.pugx.org/lowerends/laravel-security-checker/downloads)](https://packagist.org/packages/lowerends/laravel-security-checker) [![Latest Unstable Version](https://poser.pugx.org/lowerends/laravel-security-checker/v/unstable)](https://packagist.org/packages/lowerends/laravel-security-checker) [![License](https://poser.pugx.org/lowerends/laravel-security-checker/license)](https://packagist.org/packages/lowerends/laravel-security-checker)
 
-This package makes it easy to integrate the Symfony Security Checker tool into your Laravel project. It exposes an artisan command to check against the Security Advisories Database.
+This package makes it easy to integrate the [Symfony Security Advisories Checker](https://security.sensiolabs.org/) into your Laravel project. It exposes an artisan command to check against the [Security Advisories Database](https://security.sensiolabs.org/database).
 
 ## Installation
 

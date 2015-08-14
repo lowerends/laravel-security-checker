@@ -7,7 +7,7 @@ class CheckCommand extends Command
 {
     protected $name = 'security:check';
 
-    protected $description = 'Check your Laravel project for known security issues';
+    protected $description = 'Check your Laravel project for known security advisories';
 
     public function __construct()
     {
@@ -24,7 +24,7 @@ class CheckCommand extends Command
         {
             foreach ($alerts as $package => $alert)
             {
-                $this->error('Security issues found!');
+                $this->error('Security advisories found!');
 
                 $this->info('======================');
 
@@ -35,7 +35,7 @@ class CheckCommand extends Command
                     $this->info('Version: ' . $alert['version']);
 
                     $this->info('Title: ' . $advisory['title']);
-                    
+
                     $this->info('Link: ' . $advisory['link']);
 
                     if($advisory['cve'] != "")
@@ -48,7 +48,7 @@ class CheckCommand extends Command
         }
         else
         {
-            $this->info('No security issues found!');
+            $this->info('No security advisories found!');
         }
     }
 }
