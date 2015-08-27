@@ -2,6 +2,7 @@
 
 use Illuminate\Console\Command;
 use SensioLabs\Security\SecurityChecker;
+use SensioLabs\Security\Exception\RuntimeException;
 
 class CheckCommand extends Command
 {
@@ -18,37 +19,44 @@ class CheckCommand extends Command
     {
         $checker = new SecurityChecker();
 
-        $alerts = $checker->check(base_path() . '/composer.lock');
-
-        if (!empty($alerts))
+        try
         {
-            foreach ($alerts as $package => $alert)
+            $alerts = $checker->check(base_path() . '/composer.lock');
+
+            if (!empty($alerts))
             {
-                $this->error('Security advisories found!');
-
-                $this->info('======================');
-
-                $this->info('Package: ' . $package);
-
-                foreach ($alert['advisories'] as $advisory)
+                foreach ($alerts as $package => $alert)
                 {
-                    $this->info('Version: ' . $alert['version']);
+                    $this->error('Security advisories found!');
 
-                    $this->info('Title: ' . $advisory['title']);
+                    $this->info('======================');
 
-                    $this->info('Link: ' . $advisory['link']);
+                    $this->info('Package: ' . $package);
 
-                    if($advisory['cve'] != "")
+                    foreach ($alert['advisories'] as $advisory)
                     {
-                        $this->info('CVE: ' . $advisory['cve']);
+                        $this->info('Version: ' . $alert['version']);
+
+                        $this->info('Title: ' . $advisory['title']);
+
+                        $this->info('Link: ' . $advisory['link']);
+
+                        if($advisory['cve'] != "")
+                        {
+                            $this->info('CVE: ' . $advisory['cve']);
+                        }
                     }
                 }
-            }
 
+            }
+            else
+            {
+                $this->info('No security advisories found!');
+            }
         }
-        else
+        catch (RuntimeException $e)
         {
-            $this->info('No security advisories found!');
+            $this->error('Security check failed: ' . $e->getMessage());
         }
     }
 }
